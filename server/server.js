@@ -16,6 +16,11 @@ const io = new Server(server, {
   }
 })
 
+app.use(
+  cors({
+    origin : ["http://localhost:3000", "https://real-time-collaborative-code-editor.onrender.com/"]
+  })
+);
 app.get('/', function (req, res) {
   res.send('Hello from the server!')
 })
