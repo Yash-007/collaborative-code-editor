@@ -20,7 +20,7 @@ function addPropsToChildren(children, props) {
 }
 
 export default function SocketWrapper({ children }) {
-    const socket = io.connect(process.env.REACT_APP_WEB_SOCKET_URL || "https://guileless-praline-e4273a.netlify.app/")
+    const socket = io.connect(process.env.REACT_APP_WEB_SOCKET_URL || "https://real-time-collaborative-code-editor-ffpm.onrender.com/")
 
     const location = useLocation()
     const navigate = useNavigate()
