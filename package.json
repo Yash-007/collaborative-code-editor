@@ -11,7 +11,7 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "build" : "cd server && npm install && cd ../client && npm install && npm run build",
+    "build" : "cd server && npm install && cd ../client && npm install && npm install react-scripts --save && npm run build",
     "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
