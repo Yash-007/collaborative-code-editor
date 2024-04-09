@@ -7,8 +7,10 @@ require('dotenv').config();
 
 app.use(cors())
 
+// create a http server 
 const server = http.createServer(app)
 
+// create a socketio server instance using http server and define the cors config 
 const io = new Server(server, {
   cors: {
     origin: "*",
@@ -16,11 +18,11 @@ const io = new Server(server, {
   }
 })
 
-app.use(
-  cors({
-    origin : ["http://localhost:3000", "https://real-time-collaborative-code-editor.onrender.com/"]
-  })
-);
+// app.use(
+//   cors({
+//     origin : ["http://localhost:3000", "https://real-time-collaborative-code-editor.onrender.com/"]
+//   })
+// );
 
 app.get('/', function (req, res) {
   res.send('Hello from the server!')

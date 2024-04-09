@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+// imported a io function from libarary 
 import { io } from "socket.io-client";
 
 function addPropsToReactElement(element, props) {
@@ -20,6 +21,7 @@ function addPropsToChildren(children, props) {
 }
 
 export default function SocketWrapper({ children }) {
+    // create a WebSocket client instance 
     const socket = io.connect(process.env.REACT_APP_WEB_SOCKET_URL || "http://localhost:5000")
 
     const location = useLocation()

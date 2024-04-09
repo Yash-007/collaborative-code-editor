@@ -6,7 +6,7 @@ import { generateColor } from "../../utils";
 import './Room.css'
 
 
-
+// imports from ace-builds 
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/mode-typescript";
 import "ace-builds/src-noconflict/mode-python";
@@ -86,6 +86,12 @@ export default function Room({ socket }) {
     socket.on("member left", ({ username }) => {
       toast(`${username} left`)
     })
+
+     // this code sets up an event listener for the "popstate" event, which is triggered when the
+    //  user navigates through their browser's history (forward button or backward button). When the event occurs, it checks the state associated 
+    // with the history entry. If the state doesn't contain the expected properties, it disconnects the socket.
+    //  The cleanup function is returned to remove the event listener when the component is unmounted to 
+    // ensure proper cleanup. 
 
     const backButtonEventListner = window.addEventListener("popstate", function (e) {
       const eventStateObj = e.state
