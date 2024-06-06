@@ -33,10 +33,16 @@ const roomID_to_Code_Map = {}
 
 async function getUsersinRoom(roomId, io) {
   const socketList = await io.in(roomId).allSockets()
+  console.log("line 36");
+  console.log(socketList);
   const userslist = []
   socketList.forEach((each => {
     (each in socketID_to_Users_Map) && userslist.push(socketID_to_Users_Map[each].username)
   }))
+
+  console.log(socketID_to_Users_Map);
+
+  console.log(userslist);
 
   return userslist
 }
@@ -135,6 +141,7 @@ io.on('connection', function (socket) {
 
 // deployment config
 const path= require("path");
+const { log } = require("console");
 __dirname = path.resolve();
 
 if(process.env.NODE_ENV === "production"){
