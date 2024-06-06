@@ -22,7 +22,7 @@
 
     export default function SocketWrapper({ children }) {
         // create a WebSocket client instance 
-        const socket = io.connect(process.env.REACT_APP_WEB_SOCKET_URL || "http://localhost:5000")
+        const socket = io.connect(process.env.REACT_APP_WEB_SOCKET_URL || "https://real-time-collaborative-code-editor.onrender.com")
 
         const location = useLocation()
         const navigate = useNavigate()
