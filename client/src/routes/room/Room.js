@@ -23,6 +23,7 @@ import "ace-builds/src-noconflict/keybinding-vim";
 import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/ext-language_tools";
 import "ace-builds/src-noconflict/ext-searchbox";
+import Loader from "../../components/loader/Loader";
 
 
 export default function Room({ socket }) {
@@ -32,7 +33,7 @@ export default function Room({ socket }) {
   const [fetchedCode, setFetchedCode] = useState(() => "")
   const [language, setLanguage] = useState(() => "javascript")
   const [codeKeybinding, setCodeKeybinding] = useState(() => undefined)
-
+  
   const languagesAvailable = ["javascript", "java", "c_cpp", "python", "typescript", "golang", "yaml", "html"]
   const codeKeybindingsAvailable = ["default", "emacs", "vim"]
 
@@ -68,7 +69,7 @@ export default function Room({ socket }) {
 
   useEffect(() => {
     socket.on("updating client list", ({ userslist }) => {
-      setFetchedUsers(userslist)
+          setFetchedUsers(userslist)
     })
 
     socket.on("on language change", ({ languageUsed }) => {
@@ -106,7 +107,8 @@ export default function Room({ socket }) {
   }, [socket])
 
   return (
-    <div className="room">
+    <>
+     <div className="room">
       <div className="roomSidebar">
         <div className="roomSidebarUsersWrapper">
           <div className="languageFieldWrapper">
@@ -127,12 +129,12 @@ export default function Room({ socket }) {
 
           <p>Connected Users:</p>
           <div className="roomSidebarUsers">
-            {fetchedUsers.map((each) => (
+            {fetchedUsers.length ? fetchedUsers.map((each) => (
               <div key={each} className="roomSidebarUsersEach">
                 <div className="roomSidebarUsersEachAvatar" style={{ backgroundColor: `${generateColor(each)}` }}>{each.slice(0, 2).toUpperCase()}</div>
                 <div className="roomSidebarUsersEachName">{each}</div>
               </div>
-            ))}
+            )) : <Loader/>}
           </div>
         </div>
 
@@ -169,5 +171,6 @@ export default function Room({ socket }) {
       />
       <Toaster />
     </div>
+    </>
   )
 }
