@@ -1,66 +1,90 @@
 .room {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: var(--spacing-md);
     min-height: 100vh;
-    padding: 10px 10px 20px;
+    padding: var(--spacing-md);
+    background-color: var(--background-color);
+    color: var(--text-primary);
 }
 
 .roomSidebar {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: var(--spacing-md);
+    background-color: var(--surface-color);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color);
+}
+
+.roomControls {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
 }
 
 .languageFieldWrapper {
-    padding: 2px 6px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
+    flex: 1;
+    min-width: 150px;
 }
 
 .languageField {
-    padding: 6px 10px;
-    background-color: #f0f0f0;
-    border: none;
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
     outline: none;
     text-transform: capitalize;
+    transition: all var(--transition-fast);
+}
+
+.languageField:hover, .languageField:focus {
+    border-color: var(--primary-color);
 }
 
 .roomCodeEditor {
     flex: 1;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
 }
 
 .roomSidebarCopyBtn {
-    font-size: 75%;
-    font-weight: bold;
-    padding: 8px 15px;
-    color: white;
-    background-color: #ffdd00;
-    border: 1px solid #ffdd00;
-    outline: none;
-    border-radius: 5px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--text-primary);
+    background-color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius-sm);
     cursor: pointer;
-    transition: all 0.45s ease-in-out 0.05s;
+    transition: all var(--transition-fast);
 }
+
 .roomSidebarCopyBtn:hover {
-    color: black;
-    background-color: white;
+    opacity: 0.9;
+    transform: translateY(-1px);
 }
 
 .roomSidebarBtn {
-    font-size: 75%;
-    font-weight: bold;
-    padding: 10px 15px;
-    background-color: white;
-    border: 1px solid black;
-    outline: none;
-    border-radius: 5px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
     cursor: pointer;
-    transition: all 0.45s ease-in-out 0.05s;
+    transition: all var(--transition-fast);
 }
+
 .roomSidebarBtn:hover {
+    background-color: var(--error-color);
+    border-color: var(--error-color);
     color: white;
-    background-color: black;
 }
 
 .roomSidebarUsersWrapper {
