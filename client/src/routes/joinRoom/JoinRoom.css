@@ -8,16 +8,43 @@
 }
 
 .joinBox {
+    position: relative;
     width: 100%;
     max-width: 400px;
     display: grid;
-    padding: var(--spacing-xl);
+    padding: var(--spacing-xl) var(--spacing-md) var(--spacing-md);
     gap: var(--spacing-lg);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-lg);
     background-color: var(--surface-color);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.joinBoxHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: calc(var(--spacing-xl) + 20px);
+    gap: var(--spacing-sm);
+}
+
+.joinBoxThemeToggle {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    z-index: 1;
+}
+
+@media screen and (min-width: 768px) {
+    .joinBox {
+        padding: var(--spacing-xl);
+    }
+
+    .joinBoxHeader {
+        padding-top: 0;
+    }
 }
 
 .joinBox:hover {

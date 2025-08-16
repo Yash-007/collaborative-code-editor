@@ -22,6 +22,12 @@
     display: flex;
     gap: var(--spacing-sm);
     flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Theme toggle specific styles in room */
+.roomControls .theme-toggle {
+    margin-right: var(--spacing-sm);
 }
 
 .languageFieldWrapper {

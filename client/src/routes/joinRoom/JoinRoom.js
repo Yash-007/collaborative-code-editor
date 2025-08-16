@@ -56,12 +56,14 @@ export default function JoinRoom() {
     return (
         <div className="joinBoxWrapper">
             <div className="joinBox">
-                <div style={{ position: 'absolute', top: '20px', right: '20px' }}>
+                <div className="joinBoxThemeToggle">
                     <ThemeToggle />
                 </div>
                 
-                <h1 className="joinBoxTitle">Welcome to CodeCollab</h1>
-                <p className="joinBoxSubtitle">Real-time collaborative code editor</p>
+                <div className="joinBoxHeader">
+                    <h1 className="joinBoxTitle">Welcome to CodeCollab</h1>
+                    <p className="joinBoxSubtitle">Real-time collaborative code editor</p>
+                </div>
 
                 <form onSubmit={handleRoomSubmit}>
                     <div className="joinBoxInputWrapper">

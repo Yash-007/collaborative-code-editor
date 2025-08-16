@@ -1,23 +1,29 @@
 .theme-toggle {
-  background: none;
+  background: var(--background-color);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-sm);
   padding: var(--spacing-sm);
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
   cursor: pointer;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all var(--transition-fast);
-  background-color: var(--surface-color);
 }
 
 .theme-toggle:hover {
-  transform: scale(1.1);
   border-color: var(--text-secondary);
+  transform: translateY(-1px);
 }
 
 .theme-toggle:focus {
   outline: 2px solid var(--primary-color);
   outline-offset: 2px;
+}
+
+.theme-toggle:active {
+  transform: translateY(1px);
 }
